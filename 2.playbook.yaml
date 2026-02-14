@@ -1,13 +1,16 @@
-- name: Install HTTPD using Ansible Playbook
-  hosts: all
-  become: true
+---
+- name: install and run nginx
+  hosts: web
+  become: yes
+
   tasks:
-    - name: Install HTTPD package
-      package:
-        name: httpd
+    - name: install nginx
+      ansible.builtin.package:
+        name: nginx
         state: present
-    - name: Start HTTPD service
-      service:
-        name: httpd
+
+    - name: start nginx
+      ansible.builtin.service:
+        name: nginx
         state: started
         enabled: yes
