@@ -8,7 +8,7 @@
     sg_id: sg-0cbbec351f83549b4      # Replace with your SG
     ami_id: ami-022ad79f3f480ecf5    # Replace with your AMI
     instance_type: t3.micro
-    environment: dev
+    env: dev
 
     instances:
       - catalogue
@@ -18,7 +18,7 @@
 
     - name: Create EC2 instances
       amazon.aws.ec2_instance:
-        name: "{{ item }}-{{ environment }}"
+        name: "{{ item }}-{{ env }}"
         instance_type: "{{ instance_type }}"
         image_id: "{{ ami_id }}"
         security_group: "{{ sg_id }}"
@@ -29,7 +29,7 @@
         tags:
           Project: roboshop
           Component: "{{ item }}"
-          Environment: "{{ environment }}"
+          Environment: "{{ env }}"
 
       loop: "{{ instances }}"
       register: ec2_output
