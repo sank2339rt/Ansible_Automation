@@ -2,11 +2,8 @@
 - name: play level variables
   hosts: web
 
-  vars:
-    COURSE: "DevOps With AWS"
-    DURATION: "140HRS"
-    TRAINER: "Sivakumar Reddy"
-
+  vars_files:
+    - course.yaml
   tasks:
     - name: print variables
       ansible.builtin.debug:
