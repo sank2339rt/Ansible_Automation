@@ -1,12 +1,12 @@
-- name: demo on conditions
-  hosts: local
+- name: Arithmetic condition example
+  hosts: localhost
   connection: local
 
   vars:
-    IS_LIVE: false
+    number: 15
 
   tasks:
-    - name: check live or not
+    - name: Print if number is greater than 10
       ansible.builtin.debug:
-        msg: "Yes, it is Live"
-      when: IS_LIVE
+        msg: "Number is greater than 10"
+      when: number > 10
