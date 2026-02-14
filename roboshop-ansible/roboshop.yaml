@@ -22,7 +22,7 @@
         instance_type: "{{ instance_type }}"
         image_id: "{{ ami_id }}"
         security_group: "{{ sg_id }}"
-        region: ap-south-1          # Change if needed
+        region: us-east-1          # Change if needed
         wait: yes
         count: 1
 
