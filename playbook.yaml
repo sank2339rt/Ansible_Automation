@@ -1,8 +1,13 @@
 ---
-- name: Ping the server
-  hosts: web
-  gather_facts: no
+- name: Test connectivity to managed nodes
+  hosts: all
+  become: yes
 
   tasks:
-    - name: Ping the server
-      ping:
+    - name: Ping all servers
+      ansible.builtin.ping:
+
+    - name: Create a test file
+      ansible.builtin.file:
+        path: /tmp/ansible-test.txt
+        state: touch
