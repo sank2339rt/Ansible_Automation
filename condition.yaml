@@ -3,7 +3,7 @@
   connection: local
 
   vars:
-    IS_LIVE: true
+    IS_LIVE: false
 
   tasks:
     - name: check live or not
