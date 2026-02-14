@@ -1,12 +1,8 @@
-- name: Arithmetic condition example
-  hosts: localhost
+- name: gathering facts
+  hosts: local
   connection: local
 
-  vars:
-    number: 1
-
   tasks:
-    - name: Print if number is greater than 10
+    - name: Print facts
       ansible.builtin.debug:
-        msg: "Number is greater than 10"
-      when: number > 10
+        msg: "{{ ansible_facts }}"
