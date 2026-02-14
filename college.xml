@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<college>
+    <collegeInfo>
+        <name>ABC Engineering College</name>
+        <establishedYear>1998</establishedYear>
+        <address>
+            <street>123 Knowledge Park</street>
+            <city>New York</city>
+            <state>NY</state>
+            <zipCode>10001</zipCode>
+        </address>
+        <contact>
+            <phone>+1-123-456-7890</phone>
+            <email>info@abcengineering.edu</email>
+            <website>www.abcengineering.edu</website>
+        </contact>
+    </collegeInfo>
+
+    <departments>
+        <department id="D01">
+            <name>Computer Science</name>
+            <headOfDepartment>Dr. John Smith</headOfDepartment>
+
+            <faculty>
+                <member id="F01">
+                    <name>Dr. Alice Brown</name>
+                    <designation>Professor</designation>
+                    <email>alice.brown@abcengineering.edu</email>
+                </member>
+                <member id="F02">
+                    <name>Mr. David Wilson</name>
+                    <designation>Assistant Professor</designation>
+                    <email>david.wilson@abcengineering.edu</email>
+                </member>
+            </faculty>
+
+            <students>
+                <student id="S01">
+                    <name>Emma Johnson</name>
+                    <year>3</year>
+                    <gpa>3.8</gpa>
+                </student>
+                <student id="S02">
+                    <name>Liam Williams</name>
+                    <year>2</year>
+                    <gpa>3.5</gpa>
+                </student>
+            </students>
+        </department>
+
+        <department id="D02">
+            <name>Mechanical Engineering</name>
+            <headOfDepartment>Dr. Robert Taylor</headOfDepartment>
+
+            <faculty>
+                <member id="F03">
+                    <name>Dr. Sarah Lee</name>
+                    <designation>Professor</designation>
+                    <email>sarah.lee@abcengineering.edu</email>
+                </member>
+            </faculty>
+
+            <students>
+                <student id="S03">
+                    <name>Noah Martinez</name>
+                    <year>4</year>
+                    <gpa>3.6</gpa>
+                </student>
+            </students>
+        </department>
+    </departments>
+</college>

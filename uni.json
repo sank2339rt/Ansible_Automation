@@ -1,0 +1,47 @@
+// This JSON file represents a college named "ABC Engineering College" established in 1998. It includes the college's address and details about its departments, including the Computer Science and Mechanical Engineering departments, along with their respective heads and students.
+{
+  "college": {
+    "name": "ABC Engineering College",
+    "establishedYear": 1998,
+    "address": {
+      "street": "123 Knowledge Park",
+      "city": "New York",
+      "state": "NY",
+      "zipCode": "10001"
+    },
+    "departments": [
+      {
+        "id": "D01",
+        "name": "Computer Science",
+        "headOfDepartment": "Dr. John Smith",
+        "students": [
+          {
+            "id": "S01",
+            "name": "Emma Johnson",
+            "year": 3,
+            "gpa": 3.8
+          },
+          {
+            "id": "S02",
+            "name": "Liam Williams",
+            "year": 2,
+            "gpa": 3.5
+          }
+        ]
+      },
+      {
+        "id": "D02",
+        "name": "Mechanical Engineering",
+        "headOfDepartment": "Dr. Robert Taylor",
+        "students": [
+          {
+            "id": "S03",
+            "name": "Noah Martinez",
+            "year": 4,
+            "gpa": 3.6
+          }
+        ]
+      }
+    ]
+  }
+}
