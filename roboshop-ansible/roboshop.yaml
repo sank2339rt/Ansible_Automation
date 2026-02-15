@@ -6,7 +6,7 @@
 
   vars:
     sg_id: sg-0cbbec351f83549b4      # Replace with your SG
-    ami_id: ami-022ad79f3f480ecf5    # Replace with your AMI
+    ami_id: ami-0220d79f3f480ecf5    # Replace with your AMI
     instance_type: t3.micro
     env: dev
 
