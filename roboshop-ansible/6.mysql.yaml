@@ -1,35 +1,42 @@
 ---
 # ==============================================================================
 # PLAY: Configure MySQL Database
-# Purpose: Database for the Shipping microservice.
 # ==============================================================================
+
 - name: configure mysql server
   hosts: mysql
   become: yes
+
+  vars:
+    mysql_root_password: RoboShop@1
+
   tasks:
-    # 1. INSTALLATION
+
+    # 1️⃣ Install MySQL server
     - name: install MySQL server
       ansible.builtin.dnf:
         name: mysql-server
         state: present
 
-    # 2. SERVICE MANAGEMENT
+    # 2️⃣ Start and enable MySQL
     - name: start and enable mysql server
       ansible.builtin.service:
         name: mysqld
-        state: restarted
+        state: started
         enabled: yes
 
-    # 3. IDEMPOTENCY CHECK (The Fix)
-    # Try to connect using the password. 
-    # If this fails, it means the password isn't set yet.
-    - name: check if root password is set
-      ansible.builtin.command: mysql -uroot -pRoboShop@1 -e 'show databases;'
-      ignore_errors: true   # Don't stop the playbook if this fails!
-      register: mysql_check # Save the result (Success or Failure)
+    # 3️⃣ Install MySQL Python dependency (required for mysql_user module)
+    - name: install python mysql client
+      ansible.builtin.dnf:
+        name: python3-PyMySQL
+        state: present
 
-    # 4. SECURITY CONFIGURATION
-    # Only run this if the check above FAILED (rc != 0)
-    - name: setup root password
-      ansible.builtin.command: mysql_secure_installation --set-root-pass RoboShop@1
-      when: mysql_check.rc != 0
+    # 4️⃣ Set root password safely
+    - name: set mysql root password
+      community.mysql.mysql_user:
+        name: root
+        host: localhost
+        password: "{{ mysql_root_password }}"
+        login_unix_socket: /var/lib/mysql/mysql.sock
+        check_implicit_admin: yes
+      ignore_errors: true
